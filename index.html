@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rains</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-main">
+            <img src="assets/img/rains.png" alt="Rains Logo" class="nav-brand">
+            <ul class="nav-menu"></ul>
+            <ul class="nav-menu-right">
+                <li>
+                    <a href="#"><em class="fas fa-dollar-sign"></em></a>
+                </li>
+                <li>
+                    <a href="#"><em class="fas fa-search"></em></a>
+                </li>
+                <li>
+                    <a href="#"><em class="fas fa-shopping-cart"></em></a>
+                </li>
+                <li>
+                    <a href="#"><em class="fas fa-sliders-h"></em></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="col-xs-5 col-md-4 mt-5">
+                <h1>Buy Waterproof Back Packs</h1>
+                <p>Water proof sit amet, consectetur adipiscing elit. </p>
+                <button class="btn btn-primary" id="custom-btn">Shop Now</button>
+            </div>
+            <div class="col-xs-7 col-md-7 ">
+                <div class="wrapper">
+                    <img class="big-img" src="assets/img/backpackbg.png" alt="Bg"/>
+                    <button class="btn btn-primary" id="custom-btn-2">Upto 45% OFF</button>
+                    <img class="small-img" src="/assets/img/backpack.png" alt="Backpack"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="slidercontainer">  
+                <div class="showSlide fade" id="slider_backpacks">   
+                </div>  
+                <!-- Navigation arrows -->  
+                <a class="left" onclick="nextSlide(-1)">❮</a>  
+                <a class="right" onclick="nextSlide(1)">❯</a>
+                <script type="text/javascript">
+                    const Shopify = require('shopify-api-node');
+
+                    const shopify = new Shopify({
+                    shopName: 'devtestrecruitte.myshopify.com',
+                    apiKey: 'd156c699edcc98186dae8e6f9562d838',
+                    password: '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'
+                    });
+
+                    async function getJson() {
+                    return shopify.product.list();
+                    }
+                    let productArr = getJson(); // hello
+
+                    let sliderBackpacks = document.getElementById("slider_backpacks");
+                    var info = "";
+
+                    for(var cont=0; cont< productArr.length; cont++){
+                    info+="<img src='"+productArr[cont]['image']['src']+"'/>"+
+                            "<div class='content'>"+productArr[cont]['title']+"</div>";
+                    }
+
+                    sliderBackpacks.innerHTML = info;
+                    var slide_index = 1;  
+                    displaySlides(slide_index);  
+              
+                    function nextSlide(n) {  
+                        displaySlides(slide_index += n);  
+                    }  
+              
+                    function currentSlide(n) {  
+                        displaySlides(slide_index = n);  
+                    }  
+              
+                    function displaySlides(n) {  
+                        var i;  
+                        var slides = document.getElementsByClassName("showSlide");  
+                        if (n > slides.length) { slide_index = 1 }  
+                        if (n < 1) { slide_index = slides.length }  
+                        for (i = 0; i < slides.length; i++) {  
+                            slides[i].style.display = "none";  
+                        }  
+                        slides[slide_index - 1].style.display = "block";  
+                    }  
+                </script>  
+            </div>
+        </div>         
+    </div>
+</body>
+</html>

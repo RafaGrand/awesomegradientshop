@@ -1,0 +1,32 @@
+{
+  "name": "awesomegradientshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rafael granados",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@splidejs/splide": "^3.6.4",
+    "babel-loader": "^8.0.0-beta.0",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "logger": "0.0.1",
+    "morgan": "^1.10.0",
+    "nonce": "^1.0.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "shopify-api-node": "^3.8.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.64.3",
+    "webpack-cli": "^4.9.1"
+  }
+}
