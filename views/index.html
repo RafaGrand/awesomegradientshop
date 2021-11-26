@@ -48,10 +48,11 @@
                     <img class="small-img" src="/assets/img/backpack.png" alt="Backpack"/>
                 </div>
             </div>
+            <div id="star12"><em class="fas fa-check" style="color:white"></em></div>
         </div>
-        <div class="row">
+        <div id="sliderRow">
             <div class="slidercontainer">  
-                <div class="showSlide fade" id="slider_backpacks">
+                <div class="d-inline-flex justify-content-center" id="slider_backpacks">
                     <script>
                         let productArr = <%- JSON.stringify(obj) %>;
                         console.log(productArr);
@@ -62,9 +63,10 @@
                             var info = "";
                             
                             for(var cont=0; cont< productArr.length; cont++){
-                                info+="<img src='"+productArr[cont]['image']['src']+"'/>"+
-                                    "<div class='content'>"+productArr[cont]['title']+"</div>";       
+                                info+="<div class='d-flex flex-column'><img src='"+productArr[cont]['image']['src']+"' class='sliderImg'/>"+
+                                    "<div class='content'><small>"+productArr[cont]['title']+"</small><br><small>"+productArr[cont]['variants'][0]['price']+"</small></div></div>";       
                             }
+                            
                             sliderBackpacks.innerHTML = info;
                         
                         });

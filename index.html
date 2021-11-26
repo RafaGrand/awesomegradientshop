@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <div class="slidercontainer">  
-                <div class="showSlide fade" id="slider_backpacks">   
+                <div class="showSlide" id="slider_backpacks">   
                 </div>  
                 <!-- Navigation arrows -->  
                 <a class="left" onclick="nextSlide(-1)">❮</a>  
@@ -78,7 +78,7 @@
                     var info = "";
 
                     for(var cont=0; cont< productArr.length; cont++){
-                    info+="<img src='"+productArr[cont]['image']['src']+"'/>"+
+                    info+="<img src='"+productArr[cont]['image']['src']+"'class='sliderImg'/>"+
                             "<div class='content'>"+productArr[cont]['title']+"</div>";
                     }
 

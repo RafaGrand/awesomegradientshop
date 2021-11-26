@@ -136,7 +136,7 @@ max-width:50%;
     color: #eff5d4;  
     font-size: 30px;  
     padding: 8px 12px;  
-    position: absolute;  
+    position: relative;  
     top: 10px;  
     width: 100%;  
     text-align: center;  
@@ -151,20 +151,13 @@ max-width:50%;
     animation-name: fade;  
     animation-duration: 1.5s;  
 }  
-@-webkit-keyframes fade {  
-    from {  
-        opacity: .4  
-    }  
-    to {  
-        opacity: 1  
-    }  
-}  
 
-@keyframes fade {  
-    from {  
-        opacity: .4  
-    }  
-    to {  
-        opacity: 1  
-    }  
+
+.sliderImg{
+    max-width: 300px;
+}
+
+.sliderRow{
+    display: inline-block !important;
+    /*flex-direction: row;*/
 }
