@@ -1,7 +1,5 @@
  const path = require('path');
  const fs = require("fs");
- const host = "127.0.0.1";
- const port = 1337;
  const express = require("express");
  const ejs =  require("ejs");
 
@@ -35,5 +33,5 @@ server.get("*", async function(request, response){
  let productArr = getJson();
  //console.log(productArr);
 
- server.listen(port, host);
- console.log('Running at Port 1337');
+ server.listen(process.env.PORT || 5000);
+ console.log('Running at Port 5000');
